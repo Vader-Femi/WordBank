@@ -220,26 +220,31 @@ fun SpeechToTextScreen(
 fun startRecording() {
     val speechRecognizerIntent =
         Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-//    speechRecognizerIntent.putExtra(
-//        RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-//        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
-//    )
     speechRecognizerIntent.putExtra(
         RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-        Locale("yo_NG")
+        RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
     )
     speechRecognizerIntent.putExtra(
         RecognizerIntent.EXTRA_LANGUAGE,
-        Locale("yo_NG")
+//        Locale("yo_NG")
+        Locale.getDefault()
     )
+//    speechRecognizerIntent.putExtra(
+//        RecognizerIntent.ACTION_WEB_SEARCH,
+//        true
+//    )
+//    speechRecognizerIntent.putExtra(
+//        RecognizerIntent.EXTRA_WEB_SEARCH_ONLY,
+//        true
+//    )
     speechRecognizerIntent.putExtra(
         RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE,
-        "yo_NG"
+        Locale.ENGLISH
     )
-    speechRecognizerIntent.putExtra(
-        RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE,
-        "yo_NG"
-    )
+//    speechRecognizerIntent.putExtra(
+//        RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_PREFERENCE,
+//        true
+//    )
 
     speechRecognizer.startListening(speechRecognizerIntent)
 }
